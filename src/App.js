@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 import todosData from './todosData';
-import './App.css'
+import './App.css';
 
 class App extends React.Component {
 	constructor() {
@@ -15,7 +15,7 @@ class App extends React.Component {
 	handleChange(id) {
 		this.setState((prevState) => {
 			const updatedTodos = prevState.todos.map((todo) => {
-				if (todo.id === id) 
+				if (todo.id === id) {
 					return {
 						...todo,
 						completed: !todo.completed
@@ -32,7 +32,11 @@ class App extends React.Component {
 
 	render() {
 		const todoItems = this.state.todos.map((item) => (
-			<TodoItem key={item.id} item={item} handleChange={this.handleChange} />
+			<TodoItem
+				key={item.id}
+				item={item}
+				handleChange={this.handleChange}
+			/>
 		));
 
 		return <div className='todo-list'>{todoItems}</div>;
